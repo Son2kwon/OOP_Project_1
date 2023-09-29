@@ -1,28 +1,22 @@
 #pragma once
-#include <iostream>
+#include<iostream>
 #include<fstream>
 #include<algorithm>
+#include<string>
+#include<sstream>
 
 using namespace std;
 
-class Student {
+typedef struct Student {
 	string name;
 	int64_t ID;
 	int Birth;
 	string Dept;
 	int64_t Tel;
-
-public:
-	Student(string name, int64_t ID, int Birth, string Dept, int64_t Tel) {
-		this->name = name;
-		this->ID = ID;
-		this->Birth = Birth;
-		this->Dept = Dept;
-		this->Tel = Tel;
-	}
-};
+}Student;
 
 class Management {
+	Student student[10];
 
 public:
 	void sort_menu() {
@@ -30,17 +24,17 @@ public:
 		cout << "2. Sort by Student ID " << endl;
 		cout << "3. Sort by Admission Year " << endl;
 		cout << "4. Sort by Department name " << endl;
+		cout << "5. List All" << endl;
+		cout << ">> ";
 
 		int select; cin >> select;
 
-		if (select == 1)
-			name_sort();
-		else if (select == 2)
-			ID_sort();
-		else if (select == 3)
-			Year_sort();
-		else if (select == 4)
-			Dept_sort();
+		if (select == 1) name_sort();
+		else if (select == 2) ID_sort();
+		else if (select == 3) Year_sort();
+		else if (select == 4) Dept_sort();
+		else if (select == 5) List_All();
+
 		else {
 			cout << "Error!" << endl << endl;
 			return;
@@ -48,55 +42,76 @@ public:
 	}
 
 private:
-	void name_sort() {
-		fstream f;
+	fstream f; // 그냥 여기서 쓸 파일 스트림을 그냥 하나로 냅다...
+	
+
+	void getInfo() { // 파일에서 정보를 읽어오는 함수
+		string line; int count = 0;
 		f.open("student_INFO.txt");
 
 		if (f.is_open()) {
+			while (getline(f, line)) {
+				istringstream ss(line);
 
+				ss >> student[count].name >> student[count].ID
+					>> student[count].Birth >> student[count].Dept >> student[count].Tel;
+
+				count++;
+			}
 
 			f.close();
 		}
 
-		else cout << "Unable to open file" << endl << endl;
+		else {
+			cout << "Unable to open file while getInfo()" << endl << endl;
+			return;
+		}
+	}
+
+	void writeInfo() { // 파일에 정보를 입력하는 함수
+
+		f.open("student_INFO.txt");
+
+		if (f.is_open()) {
+			
+
+			f.close();
+		}
+		
+		else {
+			cout << "Unable to open file while writeInfo()" << endl << endl;
+			return;
+		}	
+	}
+
+
+
+
+	void name_sort() {
+		getInfo();
+
+		writeInfo();
 	}
 
 	void ID_sort() {
-		fstream f;
-		f.open("student_INFO.txt");
+		getInfo();
 
-		if (f.is_open()) {
-
-
-			f.close();
-		}
-
-		else cout << "Unable to open file" << endl << endl;
+		writeInfo();
 	}
 
 	void Year_sort() {
-		fstream f;
-		f.open("student_INFO.txt");
+		getInfo();
 
-		if (f.is_open()) {
-
-
-			f.close();
-		}
-
-		else cout << "Unable to open file" << endl << endl;
+		writeInfo();
 	}
 
 	void Dept_sort() {
-		fstream f;
-		f.open("student_INFO.txt");
+		getInfo();
 
-		if (f.is_open()) {
+		writeInfo();
+	}
 
+	void List_All() {
 
-			f.close();
-		}
-
-		else cout << "Unable to open file" << endl << endl;
 	}
 };
