@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<string>
 #include<sstream>
+#include<vector>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ typedef struct Student {
 }Student;
 
 class Management {
-	Student student[10];
+	vector<Student> student[];
 
 public:
 	void sort_menu() {
@@ -28,6 +29,7 @@ public:
 		cout << ">> ";
 
 		int select; cin >> select;
+
 
 		if (select == 1) name_sort();
 		else if (select == 2) ID_sort();
@@ -73,7 +75,9 @@ private:
 		f.open("student_INFO.txt");
 
 		if (f.is_open()) {
-			
+			for (int i = 0; i < student.size(); i++) {
+				cout << student[i].name << student[i].ID << student[i].Birth << student[i].Dept << student[i].Tel << endl;
+			}
 
 			f.close();
 		}
@@ -96,22 +100,20 @@ private:
 	void ID_sort() {
 		getInfo();
 
-		writeInfo();
 	}
 
 	void Year_sort() {
 		getInfo();
 
-		writeInfo();
 	}
 
 	void Dept_sort() {
 		getInfo();
 
-		writeInfo();
 	}
 
 	void List_All() {
+		getInfo();
 
 	}
 };
