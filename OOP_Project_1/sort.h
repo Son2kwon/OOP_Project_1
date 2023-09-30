@@ -17,7 +17,7 @@ typedef struct Student {
 }Student;
 
 class Management {
-	vector<Student> student[];
+	vector<Student> student;
 
 public:
 	void sort_menu() {
@@ -55,10 +55,11 @@ private:
 			while (getline(f, line)) {
 				istringstream ss(line);
 
-				ss >> student[count].name >> student[count].ID
-					>> student[count].Birth >> student[count].Dept >> student[count].Tel;
+				Student s;
 
-				count++;
+				ss >> s.name >> s.ID >> s.Birth >> s.Dept >> s.Tel;
+
+				student.push_back(s);
 			}
 
 			f.close();
@@ -76,7 +77,7 @@ private:
 
 		if (f.is_open()) {
 			for (int i = 0; i < student.size(); i++) {
-				cout << student[i].name << student[i].ID << student[i].Birth << student[i].Dept << student[i].Tel << endl;
+				cout << student[i].name << " " << student[i].ID << " " << student[i].Birth << " " << student[i].Dept << " " << student[i].Tel << endl;
 			}
 
 			f.close();
