@@ -9,15 +9,32 @@ using namespace std;
 
 void students_search();
 string erase_blank(string str);
+string getToken(string s, string col);
 
 
-struct Student {
-	string name;
+class Student {
+	string Name;
 	string ID;
-	string dept;
-	string birth_year;
-	string tel;
+	string Dept;
+	string Birth;
+	string Tel;
+
+public:
+	Student() {	};
+	Student(string name, string id, string dept, string birth, string tel) {
+		Name = name;
+		ID = id;
+		Dept = dept;
+		Birth = birth;
+		Tel = tel;
+	}
+	void printInfo() {
+		cout << Name << "\n" << ID << "\n" << Dept << "\n" << Birth << "\n" << Tel << "\n";
+
+	}
+
 };
+
 
 
 
@@ -47,81 +64,66 @@ void students_search() {
 	cin >> select_menu;
 
 
-	string keyword = "";
-	int start_pos = 0;
-	int n = 0;
-	switch (select_menu) {
-	case 1:
-		cout << "Name keyword? ";
-		cin >> keyword;
-		start_pos = 0; n = 15;
-		break;
-	case 2:
-		cout << "student ID keyword? ";
-		cin >> keyword;
-		start_pos = 15; n = 10;
-		break;
-	case 3:
-		cout << "admission year keyword? ";
-		cin >> keyword;
-		start_pos = 15; n = 4;
-		break;
-	case 4:
-		cout << "Department name keyword? ";
-		cin >> keyword;
-		start_pos = 25; n = 20;
-		break;
-	default: break;
-
-	}
-
-
-
-
-
 	ifstream file("students.txt");
-
 
 	//파일에서 학생 정보를 읽어와서 Student 구조체에 저장, 벡터에 푸시
 	if (file.is_open())
 	{
-		cout << "파일 열림\n";
-
-			
 		if (select_menu == 5) {		//5.List All 선택시
 			while (!file.eof())
 			{
 				getline(file, line);
-				Student s;
-				s = { erase_blank(line.substr(0,15)),
-					erase_blank(line.substr(15,10)),
-					erase_blank(line.substr(25,20)),
-					erase_blank(line.substr(45,4)),
-					erase_blank(line.substr(49,12)) };
-				v.push_back(s);
-				cout << s.name << "\n";
-
-
+				v.push_back(Student(getToken(line, "Name"), 
+					getToken(line, "ID"), 
+					getToken(line, "Dept"), 
+					getToken(line, "Birth"), 
+					getToken(line, "Tel")));
+			
 			}
 
 		}
 		else {
+			string col = "";
+			string keyword = "";
+			switch (select_menu) {
+			case 1:
+				cout << "Name keyword? ";
+				cin >> keyword;
+				col = "Name";
+				break;
+			case 2:
+				cout << "student ID keyword? ";
+				cin >> keyword;
+				col = "ID";
+				break;
+			case 3:
+				cout << "admission year keyword? ";
+				cin >> keyword;
+				col = "Year";
+				break;
+			case 4:
+				cout << "Department name keyword? ";
+				cin >> keyword;
+				col = "Dept";
+				break;
+			default: break;
+
+			}
+			
+
+			string token;
 			while (!file.eof())
 			{
 				getline(file, line);
-				cout << line << '\n';
-				string str = erase_blank(line.substr(start_pos, n));
-				Student s;
-				if (str.compare(keyword) == 0) {	//입력한 키워드와 같은지 체크
+				token = getToken(line, col);
+				if (token.compare(keyword) == 0) {	//입력한 키워드와 같은지 체크
 
-					cout << str << "\n";
-					s = { erase_blank(line.substr(0,15)),
-						erase_blank(line.substr(15,10)),
-						erase_blank(line.substr(25,20)),
-						erase_blank(line.substr(45,4)),
-						erase_blank(line.substr(49,12)) };
-					v.push_back(s);
-					cout << s.name << "\n";
+					v.push_back(Student(getToken(line, "Name"),
+						getToken(line, "ID"),
+						getToken(line, "Dept"),
+						getToken(line, "Birth"),
+						getToken(line, "Tel")));
+
 
 				}
 			}
@@ -141,11 +143,9 @@ void students_search() {
 
 	//sort 후 출력
 	printf("%-15s%-10s%-20s%-11s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
-	Student st;
+
 	for (int i = 0; i < v.size(); i++) {
-		st = v.at(i);
-		//printf("%15s%10s%20s%11s%12s\n", st.name, st.ID, st.dept, st.birth_year, st.tel);
-		cout << st.name << "\n" << st.ID << "\n" << st.dept << "\n" << st.birth_year << "\n" << st.tel << "\n";
+		v.at(i).printInfo();
 	}
 
 
@@ -162,3 +162,21 @@ string erase_blank(string str) {
 	str = str.substr(0, n);
 	return str;
 }
+string getToken(string s,string col)
+{
+	if (col == "Name")
+		return 	erase_blank(s.substr(0, 15));
+	else if (col == "ID")
+		return erase_blank(s.substr(15, 10));
+	else if (col == "Dept")
+		return 	erase_blank(s.substr(25, 20));
+	else if (col == "Year")
+		return erase_blank(s.substr(15, 4));
+	else if (col == "Birth")
+		return erase_blank(s.substr(45, 4));
+	else if (col == "Tel")
+		return erase_blank(s.substr(49, 12));
+
+	
+}
+
