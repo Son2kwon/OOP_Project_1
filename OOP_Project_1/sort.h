@@ -8,13 +8,48 @@
 
 using namespace std;
 
-typedef struct Student {
-	string name;
-	int64_t ID;
-	int Birth;
+class Student {
+	string Name;
+	string ID;
 	string Dept;
-	int64_t Tel;
-}Student;
+	string Birth;
+	string Tel;
+
+public:
+	Student() {	};
+	Student(string name, string id, string dept, string birth, string tel) {
+		Name = name;
+		ID = id;
+		Dept = dept;
+		Birth = birth;
+		Tel = tel;
+	}
+
+	void printInfo() {
+		// cout << Name << "\n" << ID << "\n" << Dept << "\n" << Birth << "\n" << Tel << "\n";
+		cout << Name << " " << ID << " " << Birth << " " << Dept << " " << Tel << " " << endl;;
+	}
+
+	string getName() const {
+		return Name;
+	}
+
+	string getID() const {
+		return ID;
+	}
+
+	string getDept() const {
+		return Dept;
+	}
+
+	string getBirth() const {
+		return Birth;
+	}
+
+	string getTel() const {
+		return Tel;
+	}
+};
 
 class Management {
 	vector<Student> student;
@@ -25,7 +60,6 @@ public:
 		cout << "2. Sort by Student ID " << endl;
 		cout << "3. Sort by Admission Year " << endl;
 		cout << "4. Sort by Department name " << endl;
-		cout << "5. List All" << endl;
 		cout << ">> ";
 
 		int select; cin >> select;
@@ -35,7 +69,6 @@ public:
 		else if (select == 2) ID_sort();
 		else if (select == 3) Year_sort();
 		else if (select == 4) Dept_sort();
-		else if (select == 5) List_All();
 
 		else {
 			cout << "Error!" << endl << endl;
@@ -55,9 +88,15 @@ private:
 			while (getline(f, line)) {
 				istringstream ss(line);
 
-				Student s;
+				string Name;
+				string ID;
+				string Dept;
+				string Birth;
+				string Tel;
+				
+				ss >> Name >> ID >> Dept >> Birth >> Tel;
 
-				ss >> s.name >> s.ID >> s.Birth >> s.Dept >> s.Tel;
+				Student s(Name, ID, Dept, Birth, Tel);
 
 				student.push_back(s);
 			}
@@ -77,7 +116,7 @@ private:
 
 		if (f.is_open()) {
 			for (int i = 0; i < student.size(); i++) {
-				cout << student[i].name << " " << student[i].ID << " " << student[i].Birth << " " << student[i].Dept << " " << student[i].Tel << endl;
+				student[i].printInfo();
 			}
 
 			f.close();
@@ -89,11 +128,12 @@ private:
 		}	
 	}
 
-
-
-
 	void name_sort() {
 		getInfo();
+
+		sort(student.begin(), student.end(), [](const Student& a, const Student& b) {
+			return a.getName() < b.getName(); // 이름을 오름차순으로 정리
+			});
 
 		writeInfo();
 	}
@@ -101,20 +141,30 @@ private:
 	void ID_sort() {
 		getInfo();
 
+		sort(student.begin(), student.end(), [](const Student& a, const Student& b) {
+			return a.getID() < b.getID(); // ID를 오름차순으로 정리
+			});
+
+		writeInfo();
 	}
 
 	void Year_sort() {
 		getInfo();
 
+		sort(student.begin(), student.end(), [](const Student& a, const Student& b) {
+			return (a.getID()).substr(0, 4) < (b.getID()).substr(0,4); // ID의 첫 4개만 갖고 오름차순 정리
+			});
+
+		writeInfo();
 	}
 
 	void Dept_sort() {
 		getInfo();
 
-	}
+		sort(student.begin(), student.end(), [](const Student& a, const Student& b) {
+			return a.getDept() < b.getDept(); // 학과 갖고 오름차순 정리
+			});
 
-	void List_All() {
-		getInfo();
-
+		writeInfo();
 	}
 };
