@@ -146,6 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Management.h" />
+    <ClInclude Include="insertion.cpp" />
+    <ClInclude Include="insertion.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="student_search.h" />
