@@ -143,6 +143,8 @@
     <ClCompile Include="student_search.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="insertion.cpp" />
+    <ClInclude Include="insertion.h" />
     <ClInclude Include="sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
