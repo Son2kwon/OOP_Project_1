@@ -78,7 +78,7 @@ public:
 
 private:
 	fstream f; // 그냥 여기서 쓸 파일 스트림을 그냥 하나로 냅다...
-	
+
 
 	void getInfo() { // 파일에서 정보를 읽어오는 함수
 		string line; int count = 0;
@@ -93,7 +93,7 @@ private:
 				string Dept;
 				string Birth;
 				string Tel;
-				
+
 				ss >> Name >> ID >> Dept >> Birth >> Tel;
 
 				Student s(Name, ID, Dept, Birth, Tel);
@@ -121,11 +121,11 @@ private:
 
 			f.close();
 		}
-		
+
 		else {
 			cout << "Unable to open file while writeInfo()" << endl << endl;
 			return;
-		}	
+		}
 	}
 
 	void name_sort() {
