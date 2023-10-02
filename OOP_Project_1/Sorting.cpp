@@ -1,13 +1,18 @@
 #include <iostream>
 #include "sort.h"
 #include "student_search.h"
+#include "student.h"
+#include "Management.h"
 
 using namespace std;
-void students_search();
-string erase_blank(string str);
+
+
+
 
 int main() {
-	Management management;
-	management.sort_menu();
-	//students_search();
+	//Management management;
+	//management.sort_menu();
+	Management m;
+	m.initial_get_info();
+	m.Search();
 }

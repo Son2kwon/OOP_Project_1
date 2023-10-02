@@ -8,50 +8,9 @@
 
 using namespace std;
 
-class Student {
-	string Name;
-	string ID;
-	string Dept;
-	string Birth;
-	string Tel;
 
-public:
-	Student() {	};
-	Student(string name, string id, string dept, string birth, string tel) {
-		Name = name;
-		ID = id;
-		Dept = dept;
-		Birth = birth;
-		Tel = tel;
-	}
 
-	void printInfo() {
-		// cout << Name << "\n" << ID << "\n" << Dept << "\n" << Birth << "\n" << Tel << "\n";
-		cout << Name << " " << ID << " " << Birth << " " << Dept << " " << Tel << " " << endl;;
-	}
-
-	string getName() const {
-		return Name;
-	}
-
-	string getID() const {
-		return ID;
-	}
-
-	string getDept() const {
-		return Dept;
-	}
-
-	string getBirth() const {
-		return Birth;
-	}
-
-	string getTel() const {
-		return Tel;
-	}
-};
-
-class Management {
+/*class Management {
 	vector<Student> student;
 
 public:
@@ -80,7 +39,7 @@ public:
 
 private:
 	fstream f; // 그냥 여기서 쓸 파일 스트림을 그냥 하나로 냅다...
-	
+
 
 	void getInfo() { // 파일에서 정보를 읽어오는 함수
 		string line; int count = 0;
@@ -95,7 +54,7 @@ private:
 				string Dept;
 				string Birth;
 				string Tel;
-				
+
 				ss >> Name >> ID >> Dept >> Birth >> Tel;
 
 				Student s(Name, ID, Dept, Birth, Tel);
@@ -123,11 +82,11 @@ private:
 
 			f.close();
 		}
-		
+
 		else {
 			cout << "Unable to open file while writeInfo()" << endl << endl;
 			return;
-		}	
+		}
 	}
 
 	void name_sort() {
@@ -154,7 +113,7 @@ private:
 		getInfo();
 
 		sort(student.begin(), student.end(), [](const Student& a, const Student& b) {
-			return (a.getID()).substr(0, 4) < (b.getID()).substr(0,4); // ID의 첫 4개만 갖고 오름차순 정리
+			return (a.getID()).substr(0, 4) < (b.getID()).substr(0, 4); // ID의 첫 4개만 갖고 오름차순 정리
 			});
 
 		writeInfo();
@@ -169,4 +128,4 @@ private:
 
 		writeInfo();
 	}
-};
+};*/

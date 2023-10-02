@@ -21,11 +21,24 @@
     <ClCompile Include="student_search.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Management.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="student.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sort.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="student_search.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="student.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Management.h">
     <ClInclude Include="insertion.cpp">
       <Filter>소스 파일</Filter>
     </ClInclude>
