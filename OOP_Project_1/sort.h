@@ -75,6 +75,8 @@ public:
 			return;
 		}
 	}
+	
+	
 
 private:
 	fstream f; // 그냥 여기서 쓸 파일 스트림을 그냥 하나로 냅다...
