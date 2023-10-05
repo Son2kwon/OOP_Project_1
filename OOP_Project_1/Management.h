@@ -45,7 +45,7 @@ public:
 			cout << "1. Insertion " << endl;
 			cout << "2. Search" << endl;
 			cout << "3. Sorting Option" << endl;
-			cout << "4.Exit" << endl;
+			cout << "4. Exit" << endl;
 			cout << "> ";
 
 			int option; cin >> option;
