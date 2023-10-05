@@ -34,7 +34,7 @@ void sort_menu(vector<Student> student) {
 	}
 }
 
-void getInfo() { // 파일에서 정보를 읽어오는 함수
+vector<Student> getInfo(vector<Student> student) { // 파일에서 정보를 읽어오는 함수
 	string line; int count = 0;
 	fstream f;
 	f.open("student_INFO.txt");
@@ -61,8 +61,9 @@ void getInfo() { // 파일에서 정보를 읽어오는 함수
 
 	else {
 		cout << "Unable to open file while getInfo()" << endl << endl;
-		return;
 	}
+
+	return student;
 }
 
 void writeInfo(vector<Student> student) { // 파일에 정보를 입력하는 함수
@@ -72,6 +73,7 @@ void writeInfo(vector<Student> student) { // 파일에 정보를 입력하는 함수
 	if (f.is_open()) {
 		for (int i = 0; i < student.size(); i++) {
 			student[i].printInfo();
+			f << student[i].getName() << " " << student[i].getID() << " " << student[i].getBirth() << " " << student[i].getDept() << " " << student[i].getTel() << " " << endl;
 		}
 
 		f.close();
@@ -101,7 +103,7 @@ bool dept_cmp(Student& a, Student& b) {
 
 
 void name_sort(vector<Student> student) {
-	getInfo();
+	student = getInfo(student);
 
 	sort(student.begin(), student.end(), name_cmp);
 
@@ -109,7 +111,7 @@ void name_sort(vector<Student> student) {
 }
 
 void ID_sort(vector<Student> student) {
-	getInfo();
+	student = getInfo(student);
 
 	sort(student.begin(), student.end(), ID_cmp);
 
@@ -117,7 +119,7 @@ void ID_sort(vector<Student> student) {
 }
 
 void Year_sort(vector<Student> student) {
-	getInfo();
+	student = getInfo(student);
 
 	sort(student.begin(), student.end(), Year_cmp);
 
@@ -125,7 +127,7 @@ void Year_sort(vector<Student> student) {
 }
 
 void Dept_sort(vector<Student> student) {
-	getInfo();
+	student = getInfo(student);
 
 	sort(student.begin(), student.end(), dept_cmp);
 
