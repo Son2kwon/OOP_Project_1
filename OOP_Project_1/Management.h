@@ -59,7 +59,7 @@ public:
 			}
 
 			else if (option == 3) {
-				//sort_menu(student);
+				sort_menu(student);
 			}
 
 			else if (option == 4) {
