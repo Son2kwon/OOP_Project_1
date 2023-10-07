@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<vector>
 #include "student.h"
 using namespace std;
 
@@ -92,13 +93,13 @@ string getToken(string s, string col)
 	if (col == "Name")
 		return 	erase_blank(s.substr(0, 15));
 	else if (col == "ID")
-		return erase_blank(s.substr(15, 10));
+		return erase_blank(s.substr(16, 10));
 	else if (col == "Dept")
-		return 	erase_blank(s.substr(25, 20));
+		return 	erase_blank(s.substr(27, 20));
 	else if (col == "Year")
-		return erase_blank(s.substr(15, 4));
+		return erase_blank(s.substr(16, 4));
 	else if (col == "Birth")
-		return erase_blank(s.substr(45, 4));
+		return erase_blank(s.substr(48, 4));
 	else if (col == "Tel")
-		return erase_blank(s.substr(49, 12));
+		return erase_blank(s.substr(53, 12));
 }
