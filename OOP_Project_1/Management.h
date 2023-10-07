@@ -15,9 +15,9 @@ class Management {
 	vector<Student> student;
 
 private:
-	void initial_get_info() {
+	/*vector<Student> initial_get_info(vector<Student> student) {
 		string line;
-		ifstream file("students.txt");
+		ifstream file("Student_INFO.txt");
 
 		if (file.is_open()) {
 			cout << "파일 열림\n";
@@ -33,14 +33,49 @@ private:
 				cout << student.back().getName();
 
 			}
+			return student;
 			file.close();
 		}
 		else
 			cout << "파일 안열림\n";
+	}*/
+
+	vector<Student> getInfo(vector<Student> student) { // 파일에서 정보를 읽어오는 함수
+		string line; int count = 0;
+		fstream f;
+		f.open("student_INFO.txt");
+
+		if (f.is_open()) {
+			while (getline(f, line)) {
+				istringstream ss(line);
+
+				string Name;
+				string ID;
+				string Dept;
+				string Birth;
+				string Tel;
+
+				ss >> Name >> ID >> Dept >> Birth >> Tel;
+
+				Student s(Name, ID, Dept, Birth, Tel);
+
+				student.push_back(s);
+			}
+
+			f.close();
+		}
+
+		else {
+			cout << "Unable to open file while getInfo()" << endl << endl;
+		}
+
+		return student;
 	}
 
 public:
 	void menu() {
+		student = getInfo(student);
+
 		while (true) {
 			cout << "1. Insertion " << endl;
 			cout << "2. Search" << endl;

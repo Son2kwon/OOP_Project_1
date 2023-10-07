@@ -103,32 +103,24 @@ bool dept_cmp(Student& a, Student& b) {
 
 
 void name_sort(vector<Student> student) {
-	student = getInfo(student);
-
 	sort(student.begin(), student.end(), name_cmp);
 
 	writeInfo(student);
 }
 
 void ID_sort(vector<Student> student) {
-	student = getInfo(student);
-
 	sort(student.begin(), student.end(), ID_cmp);
 
 	writeInfo(student);
 }
 
 void Year_sort(vector<Student> student) {
-	student = getInfo(student);
-
 	sort(student.begin(), student.end(), Year_cmp);
 
 	writeInfo(student);
 }
 
 void Dept_sort(vector<Student> student) {
-	student = getInfo(student);
-
 	sort(student.begin(), student.end(), dept_cmp);
 
 	writeInfo(student);
