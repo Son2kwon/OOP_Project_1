@@ -9,6 +9,5 @@
     <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="student_search.h" />
-    <ClInclude Include="main_menu.h" />
   </ItemGroup>
 </Project>
