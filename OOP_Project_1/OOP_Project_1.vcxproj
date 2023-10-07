@@ -142,9 +142,7 @@
     <ClCompile Include="main_menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main_menu.h" />
     <ClInclude Include="Management.h" />
-    <ClInclude Include="insertion.cpp" />
     <ClInclude Include="insertion.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="student.h" />

@@ -9,44 +9,50 @@ using namespace std;
 vector<Student> student;
 
 void insertion() {
-	string stuName;
-	string stuID;
-	string stuBirth;
-	string stuDept;
-	string stuTel;
+    string stuName;
+    string stuID;
+    string stuBirth;
+    string stuDept;
+    string stuTel;
 
-	bool idExists = false;
-	bool isBlank = false;
-	cin.ignore();
+    bool idExists = false;
+    bool isBlank = false;
 
-	cout << "Name : ";
-	getline(cin, stuName);
-	if (stuName.empty() || stuName.find_first_not_of(' ') == string::npos) {
-		isBlank = true;
-		cerr << "Error : Name should not be blank";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // 개행 문자 정확히 제거
 
-	}
+    cout << "Name : ";
+    getline(cin, stuName);
+    if (stuName.empty() || stuName.find_first_not_of(' ') == string::npos) {
+        isBlank = true;
+        cerr << "Error : Name should not be blank";
+    }
 
-	cout << "Student ID : ";
-	cin >> stuID;
-	for (int i = 0; i < student.size(); ++i) {
-		if (student[i].getID() == stuID) {
-			idExists = true;
-			cerr << "Error : Already inserted";
-			break;
-		}
-	}
-	cout << "Birth Year : ";
-	cin >> stuBirth;
+    cout << "Student ID : ";
+    cin >> stuID;
+    for (int i = 0; i < student.size(); ++i) {
+        if (student[i].getID() == stuID) {
+            idExists = true;
+            cerr << "Error : Already inserted";
+            break;
+        }
+    }
 
-	cout << "Department : ";
-	cin >> stuDept;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // 개행 문자 정확히 제거
 
-	cout << "Tel : ";
-	cin >> stuTel;
+    cout << "Birth Year : ";
+    cin >> stuBirth;
 
-	if (!idExists && !isBlank) {
-		Student newStudent(stuName, stuID, stuDept, stuBirth, stuTel);
-		student.push_back(newStudent);
-	}
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // 개행 문자 정확히 제거
+
+    cout << "Department : ";
+    getline(cin, stuDept);
+
+    cout << "Tel : ";
+    getline(cin, stuTel);
+    cout << endl;
+
+    if (!idExists && !isBlank) {
+        Student newStudent(stuName, stuID, stuDept, stuBirth, stuTel);
+        student.push_back(newStudent);
+    }
 }
