@@ -140,10 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main_menu.cpp" />
-    <ClCompile Include="Management.cpp" />
-    <ClCompile Include="Sorting.cpp" />
-    <ClCompile Include="student.cpp" />
-    <ClCompile Include="student_search.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main_menu.h" />
