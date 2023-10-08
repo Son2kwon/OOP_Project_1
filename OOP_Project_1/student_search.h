@@ -13,7 +13,6 @@ string getToken(string s, string col);
 void students_search(vector<Student> v) {
 
 	string line;
-	vector<Student> vec;		//Student 구조체를 담는 벡터 자료구조
 
 	string menu_msg = "\n- Search -\n"
 		"1. Search by name\n"
@@ -84,36 +83,6 @@ void students_search(vector<Student> v) {
 
 
 
-	//sort 후 출력
-
-	/*if (!vec.empty()) {
-		for (int i = 0; i < vec.size(); i++) {
-			vec.at(i).printInfo();
-
-		}
-	}*/
 }
 
 
-//공백이 있는 문자열에서 우측 공백 제거하여 반환
-/*string erase_blank(string str) {
-	int n;
-	n = str.find_last_not_of(' ') + 1;
-	str = str.substr(0, n);
-	return str;
-}
-string getToken(string s, string col)
-{
-	if (col == "Name")
-		return 	erase_blank(s.substr(0, 15));
-	else if (col == "ID")
-		return erase_blank(s.substr(16, 10));
-	else if (col == "Dept")
-		return 	erase_blank(s.substr(27, 20));
-	else if (col == "Year")
-		return erase_blank(s.substr(16, 4));
-	else if (col == "Birth")
-		return erase_blank(s.substr(48, 4));
-	else if (col == "Tel")
-		return erase_blank(s.substr(53, 12));
-}*/
