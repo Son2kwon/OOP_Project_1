@@ -7,6 +7,8 @@
 using namespace std;
 
 vector<Student> student;
+void insertion();
+void fileInsert(Student newStudent);
 
 void insertion() {
     string stuName;
@@ -54,5 +56,19 @@ void insertion() {
     if (!idExists && !isBlank) {
         Student newStudent(stuName, stuID, stuDept, stuBirth, stuTel);
         student.push_back(newStudent);
+        fileInsert(newStudent);
+    }
+
+
+}
+
+void fileInsert(Student newStudent) {
+    ofstream f("students.txt", ios::app);
+    if (f.is_open()) {
+        f << newStudent.getName() << ',' << newStudent.getID() << ',' << newStudent.getDept() << ',' << newStudent.getBirth() << ',' << newStudent.getTel() << '\n';
+        f.close();
+    }
+    else {
+        cerr << "Unable to open file";
     }
 }
