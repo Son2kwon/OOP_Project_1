@@ -68,12 +68,13 @@ vector<Student> getInfo(vector<Student> student) { // ÆÄÀÏ¿¡¼­ Á¤º¸¸¦ ÀĞ¾î¿À´Â Ç
 
 void writeInfo(vector<Student> student) { // ÆÄÀÏ¿¡ Á¤º¸¸¦ ÀÔ·ÂÇÏ´Â ÇÔ¼ö
 	fstream f;
-	f.open("student_INFO.txt");
+	f.open("students.txt");
 
 	if (f.is_open()) {
 		for (int i = 0; i < student.size(); i++) {
+			if (student[i].getName() == "") continue;
 			student[i].printInfo();
-			f << student[i].getName() << " " << student[i].getID() << " " << student[i].getBirth() << " " << student[i].getDept() << " " << student[i].getTel() << " " << endl;
+			f << student[i].getName() << "," << student[i].getID() << "," << student[i].getDept() << "," << student[i].getBirth() << "," << student[i].getTel() << endl;
 		}
 
 		f.close();
