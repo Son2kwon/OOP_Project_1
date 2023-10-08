@@ -1,13 +1,13 @@
-Lisa Simpson    2006303001 Computer Engineering 2000 01012345678
-Gildong Hong    2004303077 Computer Engineering 1999 01187651234
-Mina Kim        2016789456 Economics            2001 01023456789
-Chis Andrew     2022789456 Philsophy            1998 01012345678
-Richard Davis   2014789123 Economics            1999 01074123658
-Brad Pitt       2001456789 Fine Art             2001 01074895623
-Harry Potter    2003741258 Chemistry            1989 01045871269
-Alan Park       2021745821 Economics            2003 01085296475
-Daniel Lee      2001541267 Biology              2000 01085697412
-Katherine Kim   2001547854 Fine Art             1985 01021457896
-Chis Martin     2001745147 Economics            1981 01085214759
-Charles Kim     2004741236 Chemistry            1987 01054125778
-Kate Moth       2011456321 Philosophy           1987 01054125411
+Alan Park,2021745821,Economics,2003,01085296475
+Brad Pitt,2001456789,Fine Art,2001,01074895623
+Charles Kim,2004741236,Chemistry,1987,01054125778
+Chis Andrew,2022789456,Philsophy,1998,01012345678
+Chis Martin,2001745147,Economics,1981,01085214759
+Daniel Lee,2001541267,Biology,2000,01085697412
+Gildong Hong,2004303077,Computer Engineering,1999,01187651234
+Harry Potter,2003741258,Chemistry,1989,01045871269
+Kate Moth,2011456321,Philosophy,1987,01054125411
+Katherine Kim,2001547854,Fine Art,1985,01021457896
+Lisa Simpson,2006303001,Computer Engineering,2000,01012345678
+Mina Kim,2016789456,Economics,2001,01023456789
+Richard Davis,2014789123,Economics,1999,01074123658

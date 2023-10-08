@@ -15,9 +15,9 @@ class Management {
 	vector<Student> student;
 
 private:
-	/*vector<Student> initial_get_info(vector<Student> student) {
+	vector<Student> initial_get_info(vector<Student> student) {
 		string line;
-		ifstream file("Student_INFO.txt");
+		ifstream file("students.txt");
 
 		if (file.is_open()) {
 			cout << "파일 열림\n";
@@ -25,12 +25,34 @@ private:
 			{
 				getline(file, line);
 				cout << line << "\n";
-				student.push_back(Student(getToken(line, "Name"),
+				/*student.push_back(Student(getToken(line, "Name"),
 					getToken(line, "ID"),
 					getToken(line, "Dept"),
 					getToken(line, "Birth"),
 					getToken(line, "Tel")));
-				cout << student.back().getName();
+				cout << student.back().getName();*/
+
+				string Name;
+				string ID;
+				string Dept;
+				string Birth;
+				string Tel;
+
+				int cur_position = 0;
+				int position;
+				string temp[5]; int i = 0;
+
+				while ((position = line.find(',', cur_position)) != std::string::npos) {
+					int len = position - cur_position;
+					string result = line.substr(cur_position, len);
+					temp[i] = result;
+					cur_position = position + 1; i++;
+				}
+
+				temp[4] = line.substr(cur_position);
+
+				Student s(temp[0], temp[1], temp[2], temp[3], temp[4]);
+				student.push_back(s);
 
 			}
 			return student;
@@ -38,9 +60,9 @@ private:
 		}
 		else
 			cout << "파일 안열림\n";
-	}*/
+	}
 
-	vector<Student> getInfo(vector<Student> student) { // 파일에서 정보를 읽어오는 함수
+	/*vector<Student> getInfo(vector<Student> student) { // 파일에서 정보를 읽어오는 함수
 		string line; int count = 0;
 		fstream f;
 		f.open("student_INFO.txt");
@@ -70,11 +92,11 @@ private:
 		}
 
 		return student;
-	}
+	}*/
 
 public:
 	void menu() {
-		student = getInfo(student);
+		student = initial_get_info(student);
 
 		while (true) {
 			cout << "1. Insertion " << endl;
@@ -107,5 +129,5 @@ public:
 				break;
 			}
 		}
-		}
+	}
 };
