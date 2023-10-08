@@ -6,4 +6,5 @@ using namespace std;
 int main() {
 	Management management;
 	management.menu();
+	
 }

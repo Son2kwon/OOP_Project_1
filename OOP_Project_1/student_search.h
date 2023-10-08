@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<vector>
+#include <iomanip>
 #include "student.h"
 using namespace std;
 
@@ -24,6 +25,7 @@ void students_search(vector<Student> v) {
 
 	int select_menu;
 	cin >> select_menu;
+	cin.ignore();
 
 
 	string keyword = "";
@@ -31,58 +33,70 @@ void students_search(vector<Student> v) {
 		switch (select_menu) {
 		case 1:
 			cout << "Name keyword? ";
-			cin >> keyword;
+			getline(cin,keyword);
+			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if ((v.at(i)).getName() == keyword)
-					vec.push_back(v.at(i));
+					v.at(i).printInfo();
 			}
 			break;
 		case 2:
 			cout << "student ID keyword? ";
-			cin >> keyword;
+			getline(cin, keyword);
+			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if ((v.at(i)).getID() == keyword)
-					vec.push_back(v.at(i));
+					v.at(i).printInfo();
 			}
 			break;
 		case 3:
 			cout << "admission year keyword? ";
-			cin >> keyword;
+			getline(cin, keyword);
+			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if (v.at(i).getID().substr(0, 4) == keyword)
-					vec.push_back(v.at(i));
+					v.at(i).printInfo();
 			}
 			break;
 		case 4:
 			cout << "Department name keyword? ";
-			cin >> keyword;
+			getline(cin, keyword);
+			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if ((v.at(i)).getDept() == keyword)
-					vec.push_back(v.at(i));
+					v.at(i).printInfo();
 			}
 			break;
-		default: break;
+		case 5:
+			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
+			if (!v.empty()) {
+				for (int i = 0; i < v.size(); i++) {
+					v.at(i).printInfo();
 
+				}
+			}
+			break;
+		default:break;
 		}
 
+		cout << endl << endl;
 	}
-	//sort(vec.begin(), vec.end());
 
 
 
 	//sort 후 출력
-	printf("%-15s%-10s%-20s%-11s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 
-	if (!vec.empty()) {
+	/*if (!vec.empty()) {
 		for (int i = 0; i < vec.size(); i++) {
 			vec.at(i).printInfo();
+
 		}
-	}
+	}*/
 }
 
 
 //공백이 있는 문자열에서 우측 공백 제거하여 반환
-string erase_blank(string str) {
+/*string erase_blank(string str) {
 	int n;
 	n = str.find_last_not_of(' ') + 1;
 	str = str.substr(0, n);
@@ -102,4 +116,4 @@ string getToken(string s, string col)
 		return erase_blank(s.substr(48, 4));
 	else if (col == "Tel")
 		return erase_blank(s.substr(53, 12));
-}
+}*/
