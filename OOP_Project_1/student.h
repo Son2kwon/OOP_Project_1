@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<iomanip>
 
 
 using namespace std;
@@ -22,8 +23,7 @@ public:
 	};
 
 	void printInfo() {
-		// cout << Name << "\n" << ID << "\n" << Dept << "\n" << Birth << "\n" << Tel << "\n";
-		cout << Name << " " << ID << " " << Birth << " " << Dept << " " << Tel << " " << endl;
+		cout << setw(16)<<left<<Name <<setw(11)<<left<< ID << setw(21) <<left<< Dept << setw(12)<<left << Birth <<setw(13) <<left<< Tel << endl;
 	}
 
 	string getName() {
