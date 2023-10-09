@@ -61,9 +61,7 @@ void students_search(vector<Student> v) {
 			}
 			break;
 		default: break;
-
 		}
-
 	}
 	//sort(vec.begin(), vec.end());
 

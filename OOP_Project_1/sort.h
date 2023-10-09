@@ -73,7 +73,7 @@ void writeInfo(vector<Student> student) { // 파일에 정보를 입력하는 함수
 	if (f.is_open()) {
 		for (int i = 0; i < student.size(); i++) {
 			if (student[i].getName() == "") continue;
-			student[i].printInfo();
+			//student[i].printInfo();
 			f << student[i].getName() << "," << student[i].getID() << "," << student[i].getDept() << "," << student[i].getBirth() << "," << student[i].getTel() << endl;
 		}
 

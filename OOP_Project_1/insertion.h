@@ -3,14 +3,14 @@
 #include <string>
 #include <vector>
 #include"student.h"
+#include"sort.h"
 
 using namespace std;
 
-vector<Student> student;
-void insertion();
+void insertion(vector<Student> student);
 void fileInsert(Student newStudent);
 
-void insertion() {
+void insertion(vector<Student> student) {
     string stuName;
     string stuID;
     string stuBirth;
@@ -56,10 +56,9 @@ void insertion() {
     if (!idExists && !isBlank) {
         Student newStudent(stuName, stuID, stuDept, stuBirth, stuTel);
         student.push_back(newStudent);
+        name_sort(student);
         fileInsert(newStudent);
     }
-
-
 }
 
 void fileInsert(Student newStudent) {

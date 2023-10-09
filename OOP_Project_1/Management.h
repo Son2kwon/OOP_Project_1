@@ -24,7 +24,7 @@ private:
 			while (!file.eof())
 			{
 				getline(file, line);
-				cout << line << "\n";
+				//cout << line << "\n";
 				/*student.push_back(Student(getToken(line, "Name"),
 					getToken(line, "ID"),
 					getToken(line, "Dept"),
@@ -55,6 +55,7 @@ private:
 				student.push_back(s);
 
 			}
+			name_sort(student);
 			return student;
 			file.close();
 		}
@@ -108,7 +109,7 @@ public:
 			int option; cin >> option;
 
 			if (option == 1) {
-				insertion();
+				insertion(student);
 			}
 
 			else if (option == 2) {
