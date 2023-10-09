@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include"student.h"
+#include"sort.h"
 
 using namespace std;
 
@@ -19,7 +20,7 @@ void insertion(vector<Student>& student) {
     bool idExists = false;
     bool isBlank = false;
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // °³Çà ¹®ÀÚ Á¤È®È÷ Á¦°Å
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ê°œí–‰ ë¬¸ì ì •í™•íˆ ì œê±°
 
     cout << "Name : ";
     getline(cin, stuName);
@@ -38,12 +39,12 @@ void insertion(vector<Student>& student) {
         }
     }
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // °³Çà ¹®ÀÚ Á¤È®È÷ Á¦°Å
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ê°œí–‰ ë¬¸ì ì •í™•íˆ ì œê±°
 
     cout << "Birth Year : ";
     cin >> stuBirth;
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // °³Çà ¹®ÀÚ Á¤È®È÷ Á¦°Å
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ê°œí–‰ ë¬¸ì ì •í™•íˆ ì œê±°
 
     cout << "Department : ";
     getline(cin, stuDept);
@@ -55,10 +56,9 @@ void insertion(vector<Student>& student) {
     if (!idExists && !isBlank) {
         Student newStudent(stuName, stuID, stuDept, stuBirth, stuTel);
         student.push_back(newStudent);
+        name_sort(student);
         fileInsert(newStudent);
     }
-
-
 }
 
 void fileInsert(Student newStudent) {
