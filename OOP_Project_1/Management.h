@@ -108,7 +108,7 @@ public:
 			int option; cin >> option;
 
 			if (option == 1) {
-				insertion();
+				insertion(student);
 			}
 
 			else if (option == 2) {
