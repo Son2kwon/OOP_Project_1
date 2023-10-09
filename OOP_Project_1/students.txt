@@ -15,3 +15,4 @@ Openhimer William,1999999999,Chemical Engineering,1970,01032146543
 Richard Davis,2014789123,Economics,1999,01074123658
 UiKwon Son,2022987123,Computer Engineering,2001,01062299383
 WonHoon Kim,1999374632,Biological Engineering,2000,01034723532
+Robert Oppenheimer,2023072100,Chemical Engineering,1967,01012266432

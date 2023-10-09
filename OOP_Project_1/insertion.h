@@ -7,10 +7,10 @@
 
 using namespace std;
 
-void insertion(vector<Student> student);
+void insertion(vector<Student>& student);
 void fileInsert(Student newStudent);
 
-void insertion(vector<Student> student) {
+void insertion(vector<Student>& student) {
     string stuName;
     string stuID;
     string stuBirth;
@@ -20,7 +20,7 @@ void insertion(vector<Student> student) {
     bool idExists = false;
     bool isBlank = false;
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // °³Çà ¹®ÀÚ Á¤È®È÷ Á¦°Å
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ê°œí–‰ ë¬¸ì ì •í™•íˆ ì œê±°
 
     cout << "Name : ";
     getline(cin, stuName);
@@ -39,12 +39,12 @@ void insertion(vector<Student> student) {
         }
     }
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // °³Çà ¹®ÀÚ Á¤È®È÷ Á¦°Å
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ê°œí–‰ ë¬¸ì ì •í™•íˆ ì œê±°
 
     cout << "Birth Year : ";
     cin >> stuBirth;
 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // °³Çà ¹®ÀÚ Á¤È®È÷ Á¦°Å
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');  // ê°œí–‰ ë¬¸ì ì •í™•íˆ ì œê±°
 
     cout << "Department : ";
     getline(cin, stuDept);
