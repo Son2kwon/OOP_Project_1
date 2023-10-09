@@ -11,3 +11,4 @@ Katherine Kim,2001547854,Fine Art,1985,01021457896
 Lisa Simpson,2006303001,Computer Engineering,2000,01012345678
 Mina Kim,2016789456,Economics,2001,01023456789
 Richard Davis,2014789123,Economics,1999,01074123658
+Robert Oppenheimer,2023072100,Chemical Engineering,1967,01012266432

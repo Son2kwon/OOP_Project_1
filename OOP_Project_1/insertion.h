@@ -6,11 +6,10 @@
 
 using namespace std;
 
-vector<Student> student;
-void insertion();
+void insertion(vector<Student>& student);
 void fileInsert(Student newStudent);
 
-void insertion() {
+void insertion(vector<Student>& student) {
     string stuName;
     string stuID;
     string stuBirth;
