@@ -20,17 +20,9 @@ private:
 		ifstream file("students.txt");
 
 		if (file.is_open()) {
-			cout << "파일 열림\n";
 			while (!file.eof())
 			{
 				getline(file, line);
-				//cout << line << "\n";
-				/*student.push_back(Student(getToken(line, "Name"),
-					getToken(line, "ID"),
-					getToken(line, "Dept"),
-					getToken(line, "Birth"),
-					getToken(line, "Tel")));
-				cout << student.back().getName();*/
 
 				string Name;
 				string ID;
@@ -63,38 +55,6 @@ private:
 			cout << "파일 안열림\n";
 	}
 
-	/*vector<Student> getInfo(vector<Student> student) { // 파일에서 정보를 읽어오는 함수
-		string line; int count = 0;
-		fstream f;
-		f.open("student_INFO.txt");
-
-		if (f.is_open()) {
-			while (getline(f, line)) {
-				istringstream ss(line);
-
-				string Name;
-				string ID;
-				string Dept;
-				string Birth;
-				string Tel;
-
-				ss >> Name >> ID >> Dept >> Birth >> Tel;
-
-				Student s(Name, ID, Dept, Birth, Tel);
-
-				student.push_back(s);
-			}
-
-			f.close();
-		}
-
-		else {
-			cout << "Unable to open file while getInfo()" << endl << endl;
-		}
-
-		return student;
-	}*/
-
 public:
 	void menu() {
 		student = initial_get_info(student);
@@ -121,6 +81,7 @@ public:
 			}
 
 			else if (option == 4) {
+				writeInfo(student);
 				cout << "Bye bye" << endl;
 				break;
 			}

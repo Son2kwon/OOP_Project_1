@@ -5,11 +5,6 @@
 #include "student.h"
 using namespace std;
 
-
-void students_search(vector<Student> v);
-string erase_blank(string str);
-string getToken(string s, string col);
-
 void students_search(vector<Student> v) {
 
 	string line;
@@ -71,7 +66,6 @@ void students_search(vector<Student> v) {
 			if (!v.empty()) {
 				for (int i = 0; i < v.size(); i++) {
 					v.at(i).printInfo();
-
 				}
 			}
 			break;
