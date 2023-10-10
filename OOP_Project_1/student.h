@@ -23,7 +23,7 @@ public:
 	};
 
 	void printInfo() {
-		cout << setw(16)<<left<<Name <<setw(11)<<left<< ID << setw(21) <<left<< Dept << setw(12)<<left << Birth <<setw(13) <<left<< Tel << endl;
+		cout << setw(22)<<left<<Name <<setw(11)<<left<< ID << setw(25) <<left<< Dept << setw(12)<<left << Birth <<setw(13) <<left<< Tel << endl;
 	}
 
 	string getName() {

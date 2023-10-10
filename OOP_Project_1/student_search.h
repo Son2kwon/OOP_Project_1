@@ -28,7 +28,7 @@ void students_search(vector<Student> v) {
 		case 1:
 			cout << "Name keyword? ";
 			getline(cin,keyword);
-			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
+			printf("\n%-22s%-11s%-25s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if ((v.at(i)).getName() == keyword)
 					v.at(i).printInfo();
@@ -37,7 +37,7 @@ void students_search(vector<Student> v) {
 		case 2:
 			cout << "student ID keyword? ";
 			getline(cin, keyword);
-			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
+			printf("\n%-22s%-11s%-25s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if ((v.at(i)).getID() == keyword)
 					v.at(i).printInfo();
@@ -46,7 +46,7 @@ void students_search(vector<Student> v) {
 		case 3:
 			cout << "admission year keyword? ";
 			getline(cin, keyword);
-			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
+			printf("\n%-22s%-11s%-25s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if (v.at(i).getID().substr(0, 4) == keyword)
 					v.at(i).printInfo();
@@ -55,14 +55,14 @@ void students_search(vector<Student> v) {
 		case 4:
 			cout << "Department name keyword? ";
 			getline(cin, keyword);
-			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
+			printf("\n%-22s%-11s%-25s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			for (int i = 0; i < v.size(); i++) {
 				if ((v.at(i)).getDept() == keyword)
 					v.at(i).printInfo();
 			}
 			break;
 		case 5:
-			printf("\n%-16s%-11s%-21s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
+			printf("\n%-22s%-11s%-25s%-12s%-12s\n", "Name", "StudentID", "Dept", "Birth Year", "Tel");
 			if (!v.empty()) {
 				for (int i = 0; i < v.size(); i++) {
 					v.at(i).printInfo();
