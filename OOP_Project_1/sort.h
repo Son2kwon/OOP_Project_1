@@ -34,26 +34,6 @@ void sort_menu(vector<Student>& student) {
 	}
 }
 
-void writeInfo(vector<Student> student) { // 파일에 정보를 입력하는 함수
-	fstream f;
-	f.open("students.txt");
-
-	if (f.is_open()) {
-		for (int i = 0; i < student.size(); i++) {
-			if (student[i].getName() == "") continue;
-			//student[i].printInfo();
-			f << student[i].getName() << "," << student[i].getID() << "," << student[i].getDept() << "," << student[i].getBirth() << "," << student[i].getTel() << endl;
-		}
-
-		f.close();
-	}
-
-	else {
-		cout << "Unable to open file while writeInfo()" << endl << endl;
-		return;
-	}
-}
-
 bool name_cmp(Student& a, Student& b) {
 	return a.getName() < b.getName();
 }

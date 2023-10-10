@@ -62,7 +62,7 @@ void insertion(vector<Student>& student) {
 }
 
 void fileInsert(Student newStudent) {
-    ofstream f("students.txt", ios::app);
+    ofstream f("file1.txt", ios::app);
     if (f.is_open()) {
         f << newStudent.getName() << ',' << newStudent.getID() << ',' << newStudent.getDept() << ',' << newStudent.getBirth() << ',' << newStudent.getTel() << '\n';
         f.close();

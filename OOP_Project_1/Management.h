@@ -17,7 +17,7 @@ class Management {
 private:
 	vector<Student> initial_get_info(vector<Student> student) {
 		string line;
-		ifstream file("students.txt");
+		ifstream file("file1.txt");
 
 		if (file.is_open()) {
 			while (!file.eof())
@@ -53,6 +53,26 @@ private:
 		}
 		else
 			cout << "파일 안열림\n";
+	}
+
+	void writeInfo(vector<Student> student) { // 파일에 정보를 입력하는 함수
+		fstream f;
+		f.open("file1.txt");
+
+		if (f.is_open()) {
+			for (int i = 0; i < student.size(); i++) {
+				if (student[i].getName() == "") continue;
+				//student[i].printInfo();
+				f << student[i].getName() << "," << student[i].getID() << "," << student[i].getDept() << "," << student[i].getBirth() << "," << student[i].getTel() << endl;
+			}
+
+			f.close();
+		}
+
+		else {
+			cout << "Unable to open file while writeInfo()" << endl << endl;
+			return;
+		}
 	}
 
 public:
